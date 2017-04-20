@@ -49,7 +49,7 @@ var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
+var HTMLonlineClasses = '<h3>Online Classes</h3><div class="online-entry"></div>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
@@ -73,22 +73,22 @@ The Internationalize Names challenge found in the lesson Flow Control from JavaS
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control from JavaScript Basics.
 */
-var clickLocations = [];
-
-function logClicks(x,y) {
-  clickLocations.push(
-    {
-      x: x,
-      y: y
-    }
-  );
-  console.log('x location: ' + x + '; y location: ' + y);
-}
-
-$(document).click(function(loc) {
-  // your code goes here!
-});
-
+// var clickLocations = [];
+//
+// function logClicks(x,y) {
+//   clickLocations.push(
+//     {
+//       x: x,
+//       y: y
+//     }
+//   );
+//   console.log('x location: ' + x + '; y location: ' + y);
+// }
+//
+// $(document).click(function(loc) {
+//   // your code goes here!
+// });
+//
 
 
 /*
