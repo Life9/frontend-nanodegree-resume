@@ -14,6 +14,9 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
+/** {
+    border: 1px solid red;
+}*/
 .clear-fix {
   overflow: auto;
 }
@@ -173,6 +176,12 @@ span {
 
 #lets-connect {
   text-align: center;
+}
+
+#linkContact {
+    display: inline-block;
+    padding: 5px;
+    margin-top: -5px;
 }
 
 /* Media queries to handle various device widths */
