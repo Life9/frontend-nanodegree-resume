@@ -191,6 +191,49 @@ var projects = {
 // Google Map
 $("#mapDiv").append(googleMap);
 
+//Konami Code
+function konami() {
+    var allowedKeys = {
+        37: 37,
+        38 : 38,
+        39 : 39,
+        40 : 40,
+        65 : 65,
+        66 : 66
+    }
+        // Code is Up Up Down Down Left Right Left Right B A
+    var konamiCode = ["38","38","40","40","37","39","37","39","66","65"]
+    var codePosition = 0
+    document.addEventListener('keydown', function(k) {
+        var key = allowedKeys[k.keyCode];
+        var requiredKey = konamiCode[codePosition];
+
+        if (key === requiredKey) {
+            codePosition++;
+
+            if (codePosition == konamiCode.length) {
+                activateCheats();
+            }
+
+            else {
+            codePosition = 0;
+            }
+        }
+    });
+}
+
+function activateCheats() {
+    document.body.style.backgroundImage = "url("images/code.jpg")";
+    var audio = new Audio("music/code.mp3");
+    audio.play();
+    
+    alert("Konami Code Activated!!!!");
+}
+
+
+
+}
+
 // Page Click event, possible heat map functionality
 // $(document).click(function(loc) {
 //   var x = loc.pageX;
