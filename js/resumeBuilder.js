@@ -1,4 +1,4 @@
-//Konami Code
+//Konami Code from http://stackoverflow.com/questions/31626852/how-to-add-konami-code-in-a-website-based-on-html
 var allowedKeys = {
   37: 'left',
   38: 'up',
