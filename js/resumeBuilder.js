@@ -1,57 +1,21 @@
-//Konami Code from http://stackoverflow.com/questions/31626852/how-to-add-konami-code-in-a-website-based-on-html
-var allowedKeys = {
-  37: 'left',
-  38: 'up',
-  39: 'right',
-  40: 'down',
-  65: 'a',
-  66: 'b'
-};
-
-var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
-var konamiCodePosition = 0;
-
-document.addEventListener('keydown', function(e) {
-
-  var key = allowedKeys[e.keyCode];
-  var requiredKey = konamiCode[konamiCodePosition];
-
-  if (key == requiredKey) {
-    konamiCodePosition++;
-
-    if (konamiCodePosition == konamiCode.length)
-      activateCheats();
-  } else
-    konamiCodePosition = 0;
-});
-
-function activateCheats() {
-    document.body.style.backgroundColor = "black";
-
-    var audio = new Audio("music/code.mp3");
-    audio.play();
-
-    alert("Konami Code Activated!!!!");
-}
-
 //Objects with loops
 var education = {
     "schools": [{
             "name": "Pennsylvania State University",
             "degree": "",
-            "major": ["Security and Risk Analysis - Information and Cyber Security"],
+            "majors": ["Security and Risk Analysis - Information and Cyber Security"],
             "location": "University Park, PA",
             "dates": "2015 - Present"
         },
         {
             "name": "United States Army",
             "degree": "",
-            "major": ["Signal Support Specialist"],
+            "majors": ["Signal Support Specialist"],
             "location": "Fort Gordon, GA",
             "dates": "2007"
         }
     ],
-    "onlineCourse": [{
+    "onlineCourses": [{
         "school": "Udacity",
         "title": ["Front-End Web Developer Nanodegree"],
         "dates": "March - Present",
@@ -62,7 +26,7 @@ var education = {
             $("#education").append(HTMLschoolStart);
 
             var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
-            var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
+            var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].majors);
             var formattedDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
             var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
             var formattedDegree = HTMLschoolLocation.replace("%data%", education.schools[i].degree);
@@ -76,13 +40,13 @@ var education = {
         for (var s = 0; s < education.onlineCourse.length; s++) {
             $("#education").append(HTMLonlineClasses);
 
-            var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourse[s].title);
-            var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourse[s].school);
+            var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[s].title);
+            var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[s].school);
             var formattedSchoolTitle = formattedTitle + formattedSchool;
 
             $(".online-entry:last").append(formattedSchoolTitle);
-            $(".online-entry:last").append(HTMLonlineDates.replace("%data%", education.onlineCourse[s].dates));
-            $(".online-entry:last").append(HTMLonlineURL.replace("%data%", education.onlineCourse[s].url));
+            $(".online-entry:last").append(HTMLonlineDates.replace("%data%", education.onlineCourses[s].dates));
+            $(".online-entry:last").append(HTMLonlineURL.replace("%data%", education.onlineCourses[s].url));
 
         }
     }
@@ -115,12 +79,12 @@ var work = {
     display: function() {
         for (var i = 0; i < work.jobs.length; i++) {
             $("#workExperience").append(HTMLworkStart);
-
-            var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
-            var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
-            var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
-            var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
-            var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+            var job = work.jobs[i];
+            var formattedEmployer = HTMLworkEmployer.replace("%data%", jobs.employer);
+            var formattedTitle = HTMLworkTitle.replace("%data%", jobs.title);
+            var formattedWorkDates = HTMLworkDates.replace("%data%", jobs.dates);
+            var formattedWorkLocation = HTMLworkLocation.replace("%data%", jobs.location);
+            var formattedDescription = HTMLworkDescription.replace("%data%", jobs.description);
             var formattedEmployerTitle = formattedEmployer + formattedTitle;
 
             $(".work-entry:last").append(formattedEmployerTitle);
@@ -196,13 +160,13 @@ var projects = {
             "title": "Javascript Resume",
             "dates": 2017,
             "description": "Bacon ipsum dolor amet jowl andouille pork chop, pork picanha frankfurter ham ground round jerky shoulder fatback. Short loin filet mignon pig sausage, biltong ribeye tenderloin pork loin drumstick tri-tip chuck jowl beef swine picanha. Doner ground round brisket hamburger pastrami, beef ribs burgdoggen fatback ball tip tenderloin alcatra.",
-            "image": "images/197x148.gif"
+            "image": ["images/197x148.gif"]
         },
         {
             "title": "HTML and CSS3 Portfolio",
             "dates": 2017,
             "description": "Bacon ipsum dolor amet jowl andouille pork chop, pork picanha frankfurter ham ground round jerky shoulder fatback. Short loin filet mignon pig sausage, biltong ribeye tenderloin pork loin drumstick tri-tip chuck jowl beef swine picanha. Doner ground round brisket hamburger pastrami, beef ribs burgdoggen fatback ball tip tenderloin alcatra.",
-            "image": "images/197x148.gif"
+            "images": ["images/197x148.gif"]
         }
     ],
     display: function() {
@@ -218,7 +182,7 @@ var projects = {
             var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
             $(".project-entry:last").append(formattedProjectDescription);
 
-            var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[i].image);
+            var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[i].images);
             $(".project-entry:last").append(formattedImage);
         }
     }
@@ -226,27 +190,6 @@ var projects = {
 
 // Google Map
 $("#mapDiv").append(googleMap);
-
-
-// Page Click event, possible heat map functionality
-// $(document).click(function(loc) {
-//   var x = loc.pageX;
-//   var y = loc.pageY;
-//
-//   logClicks(x,y);
-// });
-
-// Internationalize Button to capitalize last name
-// function inName(name) {
-//     var nameArray = name.split(" ");
-//     nameArray[0] = nameArray[0].charAt(0).toUpperCase() + nameArray[0].slice(1);
-//     nameArray[1] = nameArray[1].toUpperCase();
-//     return (nameArray.join(" "))
-// }
-//
-// $("#main").append(internationalizeButton);
-
-// Calls all the functions
 
 education.display();
 work.display();
