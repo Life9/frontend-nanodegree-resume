@@ -37,7 +37,7 @@ var education = {
             $(".education-entry:last").append(formattedMajor);
             $(".education-entry:last").append(formattedLocation);
         }
-        for (var s = 0; s < education.onlineCourse.length; s++) {
+        for (var s = 0; s < education.onlineCourses.length; s++) {
             $("#education").append(HTMLonlineClasses);
 
             var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[s].title);
@@ -80,11 +80,11 @@ var work = {
         for (var i = 0; i < work.jobs.length; i++) {
             $("#workExperience").append(HTMLworkStart);
             var job = work.jobs[i];
-            var formattedEmployer = HTMLworkEmployer.replace("%data%", jobs.employer);
-            var formattedTitle = HTMLworkTitle.replace("%data%", jobs.title);
-            var formattedWorkDates = HTMLworkDates.replace("%data%", jobs.dates);
-            var formattedWorkLocation = HTMLworkLocation.replace("%data%", jobs.location);
-            var formattedDescription = HTMLworkDescription.replace("%data%", jobs.description);
+            var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+            var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+            var formattedWorkDates = HTMLworkDates.replace("%data%", job.dates);
+            var formattedWorkLocation = HTMLworkLocation.replace("%data%", job.location);
+            var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
             var formattedEmployerTitle = formattedEmployer + formattedTitle;
 
             $(".work-entry:last").append(formattedEmployerTitle);
@@ -160,7 +160,7 @@ var projects = {
             "title": "Javascript Resume",
             "dates": 2017,
             "description": "Bacon ipsum dolor amet jowl andouille pork chop, pork picanha frankfurter ham ground round jerky shoulder fatback. Short loin filet mignon pig sausage, biltong ribeye tenderloin pork loin drumstick tri-tip chuck jowl beef swine picanha. Doner ground round brisket hamburger pastrami, beef ribs burgdoggen fatback ball tip tenderloin alcatra.",
-            "image": ["images/197x148.gif"]
+            "images": ["images/197x148.gif"]
         },
         {
             "title": "HTML and CSS3 Portfolio",
